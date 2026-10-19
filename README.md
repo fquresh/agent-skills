@@ -17,6 +17,7 @@ For example, use `~/.claude/skills/` or `~/.agents/skills/`.
 | Skill | What it does |
 | --- | --- |
 | [deepen-prompt](skills/deepen-prompt/SKILL.md) | Rewrites a broad prompt so it asks for deeper work, not more work. |
+| [plain-language-breakdown](skills/plain-language-breakdown/SKILL.md) | Breaks a dense source into fixed layers you can recall with the source closed. |
 
 ## deepen-prompt
 
@@ -80,6 +81,28 @@ Depth over breadth. Do not add scope beyond this.
 The four questions come from Felix Rieseberg's essay [How to be more ambitious: A tutorial for humans with models](https://felixrieseberg.com/how-to-be-more-ambitious-a-tutorial-for-humans-with-models/).
 The skill quotes his prompt with credit.
 The MIT license covers the rest of this repo, not his text.
+
+## plain-language-breakdown
+
+A summary compresses a dense source.
+This skill builds a scaffold instead, so you can explain the source with it closed.
+
+```
+/plain-language-breakdown https://en.wikipedia.org/wiki/Basel_III
+```
+
+The output always has the same 8 layers:
+
+| Layer | What it gives you |
+| --- | --- |
+| 0. The one line | What this is, in 20 words or fewer. You can stop here. |
+| 1. The problem it solves | Why the thing exists, in 3 sentences or fewer. |
+| 2. The story, in order | A numbered causal chain, one idea per line. |
+| 3. The shape | Counts and structure, and what not to memorise. |
+| 4. The words you need | A glossary with plain meanings and everyday analogies. |
+| 5. What is being claimed | Fact, interpretation, and hypothesis, kept apart. |
+| 6. How I would know I am wrong | What kills the claim, what confirms it, and what is unverified. |
+| 7. Closed-book test | 5 questions to answer without the source. |
 
 ## License
 
