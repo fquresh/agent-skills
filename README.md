@@ -18,6 +18,7 @@ For example, use `~/.claude/skills/` or `~/.agents/skills/`.
 | --- | --- |
 | [deepen-prompt](skills/deepen-prompt/SKILL.md) | Rewrites a broad prompt so it asks for deeper work, not more work. |
 | [plain-language-breakdown](skills/plain-language-breakdown/SKILL.md) | Breaks a dense source into fixed layers you can recall with the source closed. |
+| [market-positioning-read](skills/market-positioning-read/SKILL.md) | Turns a market headline into a sourced positioning read with bull and bear cases per stock. |
 
 ## deepen-prompt
 
@@ -103,6 +104,27 @@ The output always has the same 8 layers:
 | 5. What is being claimed | Fact, interpretation, and hypothesis, kept apart. |
 | 6. How I would know I am wrong | What kills the claim, what confirms it, and what is unverified. |
 | 7. Closed-book test | 5 questions to answer without the source. |
+
+## market-positioning-read
+
+A market headline is not a trade.
+This skill finds the primary source behind a post and checks recent price action.
+Then it gives a bull and bear case for each affected stock.
+
+```
+/market-positioning-read https://t.co/<link to a news post>
+```
+
+The agent works in six steps:
+
+1. Follow the link to the original article, filing, or transcript.
+2. Find where the post's framing differs from the source, for example volume vs price.
+3. Pull recent price action, guidance, and dated third-party data.
+4. Find the second-order signal: who gains pricing power, and who absorbs the cost.
+5. Write a short bull and bear case for each name, with a sourced number in each.
+6. Give a positioning table, pair ideas, the main risk, dated catalysts, and the limits of the read.
+
+See [a filled example](skills/market-positioning-read/references/example-memory-ltas.md).
 
 ## License
 
